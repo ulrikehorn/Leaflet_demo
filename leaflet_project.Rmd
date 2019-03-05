@@ -1,0 +1,43 @@
+---
+title: "Map of several Max Planck Institutes in Germany"
+output: html_document
+---
+
+## This is my first own map in which I present a few Max Planck Institutes all over Germany.
+### Have a look at what they do! (This is by no means a comprehensive overview but I guess you can see the principle)
+
+```{r, echo=FALSE}
+library(leaflet)
+mpiLatLong <- data.frame(
+   lat = c(50.733997064, 51.02612, 50.92579, 48.74667, 48.74692, 54.07410, 54.09382, 54.16017,
+           51.33496, 51.54114, 51.55999, 49.58239, 48.26099, 48.26177, 48.26322, 48.25966),
+   lng = c(7.092332964, 13.71956, 6.91662, 9.08236, 9.08052, 13.42427, 12.11087, 10.43392,
+            12.38892, 9.94707, 9.94843, 11.02750, 11.67146, 11.67154,11.67190, 11.66672)
+)
+mpiSites <- c(
+   "<a href='http://www.mpim-bonn.mpg.de/'>Max Planck Institute for Mathematics</a>",
+   "<a href='https://www.cpfs.mpg.de/en/'>Max Planck Institute for Chemical Physics of Solids</a>",
+   "<a href='https://www.sf.mpg.de/en'>Max Planck Institute for Metabolism Research</a>",
+   "<a href='https://www.fkf.mpg.de/en'>Max Planck Institute for Solid State Research</a>",
+   "<a href='http://www.is.mpg.de'>Max Planck Institute for Intelligent Systems Stuttgart</a>",
+   "<a href='https://www.ipp.mpg.de/en'>Max Planck Institute for Plasma Physics</a>",
+   "<a href='https://www.demogr.mpg.de/en/'>Max Planck Institute for Demographic Research</a>",
+   "<a href='https://www.evolbio.mpg.de/2169/en'>Max Planck Institute for Evolutionary Biology</a>",
+   "<a href='https://www.cbs.mpg.de/en'>Max Planck Institute for Human Cognitive and Brain Sciences</a>",
+   "<a href='http://www.mmg.mpg.de'>Max Planck Institute for the Study of Religious and Ethnic Diversitys</a>",
+   "<a href='https://www.mps.mpg.de/en'>Max Planck Institute for Solar System Research</a>",
+   "<a href='https://www.mpa-garching.mpg.de'>Max Planck Institute for Astrophysics</a>",
+   "<a href='http://www.mpe.mpg.de/2169/en'>Max Planck Institute for Extraterrestrial Physics
+</a>",
+   "<a href='https://www.ipp.mpg.de/en'>Max Planck Institute for Plasma Physics</a>",
+   "<a href='https://www.mpq.mpg.de/en'>Max Planck Institute of Quantum Optics</a>"
+)
+mpiLatLong %>%
+   leaflet() %>%
+   addTiles() %>%
+   addMarkers(popup = mpiSites, clusterOptions = markerClusterOptions())
+```
+
+
+
+
